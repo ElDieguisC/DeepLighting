@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c766ae84869836b4198b42324c67bab7
+guid: 0e453e5efaf411a4d83c79ff9359e6ab
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
@@ -9,11 +9,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: FISH_Skin
     second: {fileID: 2100000, guid: 0adfa1b07caee0b4494f5c0440d5ac95, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Fish_Aletas
-    second: {fileID: 2100000, guid: 179cbea32d92c9543adb489f58b29c1b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +35,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fish-armature|Swim.001
+      takeName: Fish-armature|Swim.001
+      internalID: -4907006008555652755
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
