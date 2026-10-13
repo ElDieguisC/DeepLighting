@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.plant.detailtoolkit": {
+      "version": "https://github.com/mdj128/yt-underwater-scene.git?path=PlantDetailToolkit",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7e330ca62cebbb691b74f14b9abc0179f7745bd7"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.14",
       "depth": 0,
