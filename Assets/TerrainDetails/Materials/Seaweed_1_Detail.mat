@@ -32,7 +32,7 @@ Material:
     - _Cutoff: 0.548
     - _GroundSink: 0.154
     - _GroundSinkHeightScale: 0.1
-    - _GroundSlopeSink: 0.276
+    - _GroundSlopeSink: 0
     - _SwayAmplitude: 0.105
     - _SwayHeightScale: 0.1
     - _SwayNoiseScale: 1.18

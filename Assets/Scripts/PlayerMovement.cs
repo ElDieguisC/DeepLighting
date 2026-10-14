@@ -12,14 +12,21 @@ public class PlayerMovment : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] private float rotationSmoothness = 10f;
 
+    public GameObject light;
+    public Material light_mat;
+    float intensity = 4.0f;
+
+
     private Rigidbody rb;
     private float yaw;
     private float pitch;
+    private bool lighton;
+    Color baseColor = Color.white;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        light_mat = GetComponentInChildren<Renderer>().GetComponentInChildren<Renderer>().material;
         // Bloquear y ocultar el cursor para control en primera/tercera persona
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -31,6 +38,22 @@ public class PlayerMovment : MonoBehaviour
         yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
         pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, -75f, 75f); // Limitar el ángulo vertical
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            light.SetActive(!light.activeSelf);
+            lighton = !lighton;
+            if (lighton == true)
+            {
+                light_mat.SetColor("_EmissionColor", baseColor * 0);
+            }
+            else
+            {
+                light_mat.SetColor("_EmissionColor", baseColor * intensity);
+            }
+
+        }
+
     }
 
     void FixedUpdate()
