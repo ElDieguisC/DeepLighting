@@ -26,7 +26,7 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        light_mat = GetComponentInChildren<Renderer>().GetComponentInChildren<Renderer>().material;
+        light_mat = GetComponentInChildren<Renderer>().material;
         // Bloquear y ocultar el cursor para control en primera/tercera persona
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
