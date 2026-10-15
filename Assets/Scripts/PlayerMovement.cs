@@ -6,7 +6,6 @@ public class PlayerMovment : MonoBehaviour
     [Header("Movimiento Hidrodinámico")]
     [SerializeField] private float swimForce = 25f;
     [SerializeField] private float verticalForce = 20f;
-    [SerializeField] private float maxSpeed = 7f;
 
     [Header("Control de Cámara / Rotación")]
     [SerializeField] private float mouseSensitivity = 2f;
@@ -86,10 +85,5 @@ public class PlayerMovment : MonoBehaviour
             rb.AddForce(verticalDirection * verticalForce, ForceMode.Acceleration);
         }
 
-        // 5. Límite de velocidad máxima bajo el agua
-        if (rb.linearVelocity.magnitude > maxSpeed)
-        {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
-        }
     }
 }
