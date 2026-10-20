@@ -52,10 +52,13 @@ public class PlayerMovment : MonoBehaviour
             }
 
         }
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
-    void FixedUpdate()
+        void FixedUpdate()
     {
         // 1. Orientación del pez según la vista
         Quaternion targetRotation = Quaternion.Euler(pitch, yaw, 0f);
