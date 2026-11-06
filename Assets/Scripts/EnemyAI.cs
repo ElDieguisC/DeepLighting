@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform visualModel; // <--- Arrastra aquí el objeto hijo (el pez/armature)
 
     [Header("Corrección Visual")]
-    [SerializeField] private Vector3 visualRotationOffset = new Vector3(0, -90f, 0); // Ajusta esto si tu modelo apunta de lado
+    [SerializeField] private Vector3 visualRotationOffset = new Vector3(0, -90, 0); // Ajusta esto si tu modelo apunta de lado
 
     [Header("Detección Visión 3D")]
     [SerializeField] private float detectionRadius = 15f;    // Distancia máxima de visión
