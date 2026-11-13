@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Cueva.unity
+    guid: 2ffba332eff30d4468a28a9e61f873f0
+  - enabled: 1
+    path: Assets/Scenes/City.unity
+    guid: a34c4c3a277ac1b47923390949e4bc8b
+  - enabled: 1
     path: Assets/Scenes/Cerro.unity
     guid: 8cf5e414522bcf9478e972c3d874b241
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DEMO.unity
     guid: e1118907227ce9744a7cf18c2710396e
   m_configObjects:
