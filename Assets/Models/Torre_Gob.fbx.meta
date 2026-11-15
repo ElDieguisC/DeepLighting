@@ -3,32 +3,7 @@ guid: 8295db5468ea9734383a74d6612d3960
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Building_4_windows
-    second: {fileID: 2100000, guid: 09c51dbb4b27f2443a0eeeb1ca6b25bd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Square White Tiles
-    second: {fileID: 2100000, guid: 6c059243090bf4141b73c42348ca418c, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Tiles036_4K-JPG_Color
-    second: {fileID: 2800000, guid: 56765a6637a2f764d819427dd1438bfb, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Tiles036_4K-JPG_NormalGL
-    second: {fileID: 2800000, guid: a544b674d82807449a62d41bf1176460, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Tiles036_4K-JPG_Roughness
-    second: {fileID: 2800000, guid: ccce2767d93cbc945b2a5ebf5ec8e419, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

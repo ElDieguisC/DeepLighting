@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5710660219675698073}
   m_Layer: 6
-  m_Name: Buildiings
+  m_Name: Buildiings_Cave-City
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
