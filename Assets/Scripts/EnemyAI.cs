@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public enum AIState { Patrolling, Chasing }
 
@@ -7,17 +7,23 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private Transform player;
-    [SerializeField] private Transform visualModel; // <--- Arrastra aquÌ el objeto hijo (el pez/armature)
+    [SerializeField] private Transform visualModel; // <--- Arrastra aqu√≠ el objeto hijo (el pez/armature)
 
-    [Header("CorrecciÛn Visual")]
+    [Header("Correcci√≥n Visual")]
     [SerializeField] private Vector3 visualRotationOffset = new Vector3(0, -90, 0); // Ajusta esto si tu modelo apunta de lado
 
-    [Header("DetecciÛn VisiÛn 3D")]
-    [SerializeField] private float detectionRadius = 15f;    // Distancia m·xima de visiÛn
-    [SerializeField] private float fieldOfViewAngle = 110f;  // ¡ngulo cÛnico de visiÛn
+    [Header("Detecci√≥n Visi√≥n 3D")]
+    [SerializeField] private float detectionRadius = 15f;    // Distancia m√°xima de visi√≥n
+    [SerializeField] private float fieldOfViewAngle = 110f;  // √Ångulo c√≥nico de visi√≥n
     [SerializeField] private LayerMask obstacleMask;         // Capas que bloquean la vista (Terreno, rocas)
 
-    [Header("Movimiento y PersecuciÛn")]
+    [Header("Sigilo (luz del jugador)")]
+    [Tooltip("Con la luz apagada solo te detecta si est√°s as√≠ de cerca (en cualquier direcci√≥n).")]
+    [SerializeField] private float darkDetectionRadius = 3f;
+    [Tooltip("Segundos que sigue buscando en tu √∫ltima posici√≥n conocida tras perderte.")]
+    [SerializeField] private float loseTrackTime = 2f;
+
+    [Header("Movimiento y Persecuci√≥n")]
     [SerializeField] private float patrolSpeed = 4f;
     [SerializeField] private float chaseSpeed = 8f;
     [SerializeField] private float rotationSpeed = 3f;
@@ -30,17 +36,23 @@ public class EnemyAI : MonoBehaviour
     private AIState currentState = AIState.Patrolling;
     private int currentWaypointIndex = 0;
 
+    private PlayerMovment playerMovement;
+    private bool canSeePlayer;
+    private Vector3 lastKnownPosition;
+    private float lostTimer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
 
-        // Si no se asignÛ manualmente, buscar al jugador por Tag
+        // Si no se asign√≥ manualmente, buscar al jugador por Tag
         if (player == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
         }
+        if (player != null) playerMovement = player.GetComponentInParent<PlayerMovment>();
         // Si no asignaste el modelo visual manualmente, intenta buscarlo en los hijos
         if (visualModel == null && transform.childCount > 0)
         {
@@ -52,17 +64,20 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
-        // Comprobar detecciÛn de visiÛn continuamente
-        bool canSeePlayer = CanSeePlayer();
+        // Comprobar detecci√≥n de visi√≥n continuamente
+        canSeePlayer = CanSeePlayer();
 
         if (canSeePlayer)
         {
             currentState = AIState.Chasing;
+            lastKnownPosition = player.position;
+            lostTimer = loseTrackTime;
         }
-        else if (currentState == AIState.Chasing && !canSeePlayer)
+        else if (currentState == AIState.Chasing)
         {
-            // Opcional: si pierde de vista al pez, vuelve a patrullar
-            currentState = AIState.Patrolling;
+            // Te perdi√≥ (p.ej. apagaste la luz): busca un momento donde te vio por √∫ltima vez
+            lostTimer -= Time.fixedDeltaTime;
+            if (lostTimer <= 0f) currentState = AIState.Patrolling;
         }
 
         // Ejecutar estado actual
@@ -78,20 +93,24 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // --- L”GICA DE DETECCI”N (CAMPO DE VISI”N 3D) ---
+    // --- L√ìGICA DE DETECCI√ìN (CAMPO DE VISI√ìN 3D) ---
     private bool CanSeePlayer()
     {
         Vector3 directionToPlayer = (player.position - transform.position);
         float distanceToPlayer = directionToPlayer.magnitude;
 
-        // 1. Verificar si est· dentro del radio de detecciÛn
-        if (distanceToPlayer <= detectionRadius)
+        // Con la luz apagada: solo te "siente" si est√°s muy cerca, en cualquier direcci√≥n
+        bool lightOn = PlayerLightOn();
+        float radius = lightOn ? detectionRadius : darkDetectionRadius;
+
+        // 1. Verificar si est√° dentro del radio de detecci√≥n
+        if (distanceToPlayer <= radius)
         {
-            // 2. Verificar si est· dentro del ·ngulo de visiÛn frontal
+            // 2. Verificar si est√° dentro del √°ngulo de visi√≥n frontal (solo aplica con luz)
             float angle = Vector3.Angle(transform.forward, directionToPlayer);
-            if (angle <= fieldOfViewAngle / 2f)
+            if (!lightOn || angle <= fieldOfViewAngle / 2f)
             {
-                // 3. Raycast para comprobar si hay obst·culos intermedios (rocas, terreno)
+                // 3. Raycast para comprobar si hay obst√°culos intermedios (rocas, terreno)
                 if (!Physics.Raycast(transform.position, directionToPlayer.normalized, distanceToPlayer, obstacleMask))
                 {
                     return true; // El enemigo ve directamente al jugador
@@ -102,7 +121,14 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
-    // --- L”GICA DE PATRULLA ---
+    // La luz est√° encendida si el objeto "light" del jugador est√° activo
+    private bool PlayerLightOn()
+    {
+        if (playerMovement == null || playerMovement.light == null) return true;
+        return playerMovement.light.activeInHierarchy;
+    }
+
+    // --- L√ìGICA DE PATRULLA ---
     private void PatrolLogic()
     {
         if (waypoints.Length == 0) return;
@@ -118,20 +144,22 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // --- L”GICA DE PERSECUCI”N ---
+    // --- L√ìGICA DE PERSECUCI√ìN ---
     private void ChaseLogic()
     {
-        MoveAndRotateTowards(player.position, chaseSpeed);
+        // Si te ve, va directo a ti; si te perdi√≥, va a donde te vio por √∫ltima vez
+        Vector3 target = canSeePlayer ? player.position : lastKnownPosition;
+        MoveAndRotateTowards(target, chaseSpeed);
     }
 
-    // --- NAVEGACI”N Y ROTACI”N SUAVE EN 3D ---
+    // --- NAVEGACI√ìN Y ROTACI√ìN SUAVE EN 3D ---
     private void MoveAndRotateTowards(Vector3 targetPosition, float speed)
     {
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
 
         if (moveDirection != Vector3.zero)
         {
-            // RotaciÛn progresiva hacia el objetivo
+            // Rotaci√≥n progresiva hacia el objetivo
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed));
             if (visualModel != null)
@@ -141,18 +169,22 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        // AplicaciÛn de velocidad fÌsica
+        // Aplicaci√≥n de velocidad f√≠sica
         rb.linearVelocity = transform.forward * speed;
     }
 
-    // --- GIZMOS DE DEPURACI”N EN LA VISTA DE ESCENA ---
+    // --- GIZMOS DE DEPURACI√ìN EN LA VISTA DE ESCENA ---
     private void OnDrawGizmosSelected()
     {
-        // Dibujar el radio de visiÛn
+        // Dibujar el radio de visi√≥n
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
 
-        // Dibujar los lÌmites del cono de visiÛn
+        // Radio de detecci√≥n con la luz apagada
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, darkDetectionRadius);
+
+        // Dibujar los l√≠mites del cono de visi√≥n
         Vector3 fovLine1 = Quaternion.AngleAxis(fieldOfViewAngle / 2, transform.up) * transform.forward;
         Vector3 fovLine2 = Quaternion.AngleAxis(-fieldOfViewAngle / 2, transform.up) * transform.forward;
 

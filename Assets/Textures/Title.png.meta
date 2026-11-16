@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 3f58cba0a87ee99428caf0a9ab9d3767
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Title_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1528
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a9ef41739048946bd856bbcf3acf90
+      internalID: 375953718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_6
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 1522
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af2620cefa5a9f243a81655f04394160
+      internalID: -2140404526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1066
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd3b0da97ce16e43a8153feb8dec7be
+      internalID: -884731224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_34
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1065
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0762acbaa3fd77247add25bb8ae26cfb
+      internalID: -1772682167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_56
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 619
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a688362e07044434bb46cbfa641f0019
+      internalID: -444398117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_62
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 607
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41dd77491bd682f4fb4115295b426bf1
+      internalID: 1482680835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_85
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 160
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48e63bb71ac0414c9a1b14b50acd959
+      internalID: 1148442604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_91
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 160
+        width: 970
+        height: 400
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ccdf83686dfbc40b7d9082f0f18a22
+      internalID: 211786166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9a8f7bf14f81d7748ac5c342262bf0e1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Title_0: 375953718
+      Title_1: -962657229
+      Title_10: 847414879
+      Title_100: -733560335
+      Title_101: 1002915698
+      Title_102: 604385565
+      Title_103: -2004057783
+      Title_104: -1386983463
+      Title_105: -279866118
+      Title_106: 1839114776
+      Title_107: 1793875840
+      Title_108: -1160275341
+      Title_109: 653161119
+      Title_11: -538376840
+      Title_110: 427735769
+      Title_111: 937102147
+      Title_112: 38529270
+      Title_12: 928197039
+      Title_13: 872364100
+      Title_14: -940625751
+      Title_15: 1617979143
+      Title_16: -1419606352
+      Title_17: -1786231857
+      Title_18: -442231731
+      Title_19: -547478179
+      Title_2: 1035247271
+      Title_20: 1011805067
+      Title_21: -234399345
+      Title_22: 214040599
+      Title_23: -1515872134
+      Title_24: 173545896
+      Title_25: 1440373984
+      Title_26: 107985695
+      Title_27: -1291988345
+      Title_28: -884731224
+      Title_29: -1015985598
+      Title_3: -1222174157
+      Title_30: 912294389
+      Title_31: -1323653026
+      Title_32: 2074219101
+      Title_33: -979634251
+      Title_34: -1772682167
+      Title_35: -1873607980
+      Title_36: 678535830
+      Title_37: 76725749
+      Title_38: 764346030
+      Title_39: 1380953365
+      Title_4: 1980545198
+      Title_40: 1984414297
+      Title_41: 1287306746
+      Title_42: -1507420641
+      Title_43: -1893830460
+      Title_44: -908418820
+      Title_45: -941959336
+      Title_46: -1533501094
+      Title_47: -441486836
+      Title_48: -555289319
+      Title_49: -1898904888
+      Title_5: -1938984600
+      Title_50: -1152928504
+      Title_51: -1979264346
+      Title_52: -772721612
+      Title_53: -1189468204
+      Title_54: 340161742
+      Title_55: -1420450084
+      Title_56: -444398117
+      Title_57: -1968638237
+      Title_58: 485217984
+      Title_59: -279126736
+      Title_6: -2140404526
+      Title_60: -1515295519
+      Title_61: 1822162592
+      Title_62: 1482680835
+      Title_63: -460076143
+      Title_64: 274860893
+      Title_65: -233863879
+      Title_66: -695934470
+      Title_67: 897305918
+      Title_68: -332674772
+      Title_69: 176470578
+      Title_7: 713569209
+      Title_70: 1564106329
+      Title_71: 327500729
+      Title_72: -950341717
+      Title_73: 560370604
+      Title_74: -355559366
+      Title_75: 1105042672
+      Title_76: 1879288648
+      Title_77: 470381996
+      Title_78: 668630454
+      Title_79: 817277984
+      Title_8: -1936120617
+      Title_80: -1178119934
+      Title_81: 307127507
+      Title_82: -1392901936
+      Title_83: 1872905085
+      Title_84: -7373124
+      Title_85: 1148442604
+      Title_86: 320622177
+      Title_87: -1697671466
+      Title_88: -929524674
+      Title_89: 939243327
+      Title_9: -2092867767
+      Title_90: -1337238285
+      Title_91: 211786166
+      Title_92: 1943516681
+      Title_93: -1994371748
+      Title_94: 331017898
+      Title_95: -1161912993
+      Title_96: 115566242
+      Title_97: 1261276355
+      Title_98: 378428030
+      Title_99: -1593368551
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
