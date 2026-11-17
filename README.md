@@ -1,1 +1,1 @@
-[![Watch the video](https://i9.ytimg.com/vi_webp/9ahCrPnEfH4/mq2.webp?sqp=CKjD79cG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGCIgUSh_MA8=&rs=AOn4CLBByjTLf6Oodue4d8M4WTNEuN1RgQ)](https://www.youtube.com/watch?v=9ahCrPnEfH4)
+[![Watch the video](https://img.youtube.com/vi/9ahCrPnEfH4/maxresdefault.jpg)](https://www.youtube.com/watch?v=9ahCrPnEfH4)
