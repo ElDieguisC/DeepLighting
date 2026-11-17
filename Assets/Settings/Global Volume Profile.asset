@@ -187,8 +187,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_OverrideState: 0
+    m_Value: {r: 0.375, g: 0.46644342, b: 0.5, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
@@ -209,14 +209,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.LiftGammaGain
   active: 1
   lift:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 0.96207875, y: 0.9483317, z: 1, w: 0}
   gamma:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 0.9205252, y: 0.99601007, z: 1, w: -0.00000014986135}
   gain:
-    m_OverrideState: 0
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_OverrideState: 1
+    m_Value: {x: 0.95638955, y: 1, z: 0.98786175, w: 0}
 --- !u!114 &7462459068742331943
 MonoBehaviour:
   m_ObjectHideFlags: 3
