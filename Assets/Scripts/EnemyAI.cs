@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float darkDetectionRadius = 3f;
     [Tooltip("Segundos que sigue buscando en tu última posición conocida tras perderte.")]
     [SerializeField] private float loseTrackTime = 2f;
+    [Tooltip("Si lo tocas sin que te haya visto, este tiempo de gracia antes de que su contacto te mate.")]
+    [SerializeField] private float alertGraceTime = 1f;
 
     [Header("Movimiento y Persecución")]
     [SerializeField] private float patrolSpeed = 4f;
@@ -40,6 +42,22 @@ public class EnemyAI : MonoBehaviour
     private bool canSeePlayer;
     private Vector3 lastKnownPosition;
     private float lostTimer;
+    private float alertTime = -Mathf.Infinity;
+
+    // Solo mata al jugador si ya lo está persiguiendo (y pasó el tiempo de gracia tras ser alertado por contacto)
+    public bool CanKillPlayer =>
+        currentState == AIState.Chasing && Time.time - alertTime >= alertGraceTime;
+
+    // Llamado cuando el jugador lo toca sin que lo haya visto: se gira y empieza a perseguirlo
+    public void Alert(Vector3 playerPosition)
+    {
+        if (currentState == AIState.Chasing) return;
+
+        currentState = AIState.Chasing;
+        lastKnownPosition = playerPosition;
+        lostTimer = loseTrackTime;
+        alertTime = Time.time;
+    }
 
     void Start()
     {

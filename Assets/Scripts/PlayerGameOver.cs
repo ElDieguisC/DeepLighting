@@ -42,13 +42,32 @@ public class PlayerGameOver : MonoBehaviour
         CheckEnemy(other);
     }
 
+    // "Stay" para que, si sigues pegado al enemigo después de alertarlo, te atrape al terminar la gracia
+    private void OnCollisionStay(Collision collision)
+    {
+        CheckEnemy(collision.collider);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        CheckEnemy(other);
+    }
+
     private void CheckEnemy(Collider other)
     {
         if (isGameOver) return;
 
-        if (other.GetComponentInParent<EnemyAI>() != null)
+        EnemyAI enemy = other.GetComponentInParent<EnemyAI>();
+        if (enemy == null) return;
+
+        if (enemy.CanKillPlayer)
         {
             TriggerGameOver();
+        }
+        else
+        {
+            // Lo tocaste sin que te viera: se da cuenta y empieza a perseguirte
+            enemy.Alert(transform.position);
         }
     }
 
