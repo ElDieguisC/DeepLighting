@@ -763,7 +763,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1659973628}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
         m_MethodName: SalirJuego
         m_Mode: 1
         m_Arguments:
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1659973628}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneControls, Assembly-CSharp
         m_MethodName: ComenzarJuego
         m_Mode: 1
         m_Arguments:

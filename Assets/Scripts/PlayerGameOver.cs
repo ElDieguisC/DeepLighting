@@ -28,6 +28,14 @@ public class PlayerGameOver : MonoBehaviour
     [SerializeField] private int parpadeos = 3;              // Parpadeos antes de apagarse
     [SerializeField] private float duracionApagado = 0.6f;   // Tiempo en que la luz baja a 0
 
+    [Header("Sonido")]
+    [Tooltip("Sonido que se reproduce al morir (ej. gore1).")]
+    [SerializeField] private AudioClip sonidoMuerte;
+    [Range(0f, 1f)][SerializeField] private float volumenMuerte = 1f;
+
+    // Avisa a otros sistemas (ej. TensionMusic) que el jugador murió
+    public static event System.Action OnPlayerDied;
+
     private bool isGameOver;
     private Image marcoRojo;
     private Image pantallaNegra;
@@ -76,6 +84,9 @@ public class PlayerGameOver : MonoBehaviour
         if (isGameOver) return;
         isGameOver = true;
 
+        ReproducirSonidoMuerte();
+        OnPlayerDied?.Invoke();
+
         // Desactivar el control del jugador
         PlayerMovment movement = GetComponent<PlayerMovment>();
         if (movement != null)
@@ -107,6 +118,17 @@ public class PlayerGameOver : MonoBehaviour
 
         // 3. Reiniciar escena
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    // AudioSource propio en 2D para no pisar otros sonidos del jugador
+    private void ReproducirSonidoMuerte()
+    {
+        if (sonidoMuerte == null) return;
+
+        AudioSource fuente = gameObject.AddComponent<AudioSource>();
+        fuente.playOnAwake = false;
+        fuente.spatialBlend = 0f;
+        fuente.PlayOneShot(sonidoMuerte, volumenMuerte);
     }
 
     // --- Parpadeo y apagado de la luz + emision del material ---
