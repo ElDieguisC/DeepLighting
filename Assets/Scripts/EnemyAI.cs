@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public enum AIState { Patrolling, Chasing }
 
@@ -22,6 +23,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float darkDetectionRadius = 3f;
     [Tooltip("Segundos que sigue buscando en tu última posición conocida tras perderte.")]
     [SerializeField] private float loseTrackTime = 2f;
+    [Tooltip("Si lo tocas sin que te haya visto, este tiempo de gracia antes de que su contacto te mate.")]
+    [SerializeField] private float alertGraceTime = 1f;
 
     [Header("Movimiento y Persecución")]
     [SerializeField] private float patrolSpeed = 4f;
@@ -40,6 +43,42 @@ public class EnemyAI : MonoBehaviour
     private bool canSeePlayer;
     private Vector3 lastKnownPosition;
     private float lostTimer;
+    private float alertTime = -Mathf.Infinity;
+
+    // Enemigos que están persiguiendo al jugador ahora mismo (lo usa TensionMusic)
+    private static readonly HashSet<EnemyAI> chasers = new HashSet<EnemyAI>();
+    public static bool AnyChasing => chasers.Count > 0;
+
+    // Limpia la lista al entrar a Play (por si el Editor no recarga el dominio)
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetChasers() => chasers.Clear();
+
+    private void UpdateChaseRegistry()
+    {
+        if (currentState == AIState.Chasing) chasers.Add(this);
+        else chasers.Remove(this);
+    }
+
+    private void OnDisable()
+    {
+        chasers.Remove(this);
+    }
+
+    // Solo mata al jugador si ya lo está persiguiendo (y pasó el tiempo de gracia tras ser alertado por contacto)
+    public bool CanKillPlayer =>
+        currentState == AIState.Chasing && Time.time - alertTime >= alertGraceTime;
+
+    // Llamado cuando el jugador lo toca sin que lo haya visto: se gira y empieza a perseguirlo
+    public void Alert(Vector3 playerPosition)
+    {
+        if (currentState == AIState.Chasing) return;
+
+        currentState = AIState.Chasing;
+        lastKnownPosition = playerPosition;
+        lostTimer = loseTrackTime;
+        alertTime = Time.time;
+        UpdateChaseRegistry();
+    }
 
     void Start()
     {
@@ -79,6 +118,8 @@ public class EnemyAI : MonoBehaviour
             lostTimer -= Time.fixedDeltaTime;
             if (lostTimer <= 0f) currentState = AIState.Patrolling;
         }
+
+        UpdateChaseRegistry();
 
         // Ejecutar estado actual
         switch (currentState)

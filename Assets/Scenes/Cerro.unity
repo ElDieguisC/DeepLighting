@@ -3263,7 +3263,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3520658447728649334, guid: fb9750e2aedc9da43885f4783cc0ed49, type: 3}
       propertyPath: Scene
-      value: Menu
+      value: Cerro(Final)
       objectReference: {fileID: 0}
     - target: {fileID: 3570087986743950548, guid: fb9750e2aedc9da43885f4783cc0ed49, type: 3}
       propertyPath: m_Name
@@ -3598,7 +3598,7 @@ GameObject:
   - component: {fileID: 5913308516080910026}
   - component: {fileID: 4208630937973807538}
   m_Layer: 0
-  m_Name: Building #5 outer
+  m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3647,7 +3647,7 @@ GameObject:
   - component: {fileID: 8038845328026259713}
   - component: {fileID: 4535334922484450502}
   m_Layer: 0
-  m_Name: Building #5 inner
+  m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3680,7 +3680,7 @@ GameObject:
   - component: {fileID: 9077967876511630082}
   - component: {fileID: 7799313084240128265}
   m_Layer: 0
-  m_Name: Building #3 outer
+  m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3854,7 +3854,7 @@ GameObject:
   - component: {fileID: 1202842358114695265}
   - component: {fileID: 758529821771840132}
   m_Layer: 0
-  m_Name: Building #3 inner
+  m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
